@@ -1,0 +1,25 @@
+comunicacion con arduino por USB UART
+
+>>dmesg | grep tty
+[13955.526206] cdc_acm 1-2.3.4.1:1.0: ttyACM0: USB ACM device
+
+>>ls -l /dev/ttyACM0
+crw-rw---- 1 root dialout 166, 0 abr  7 20:17 /dev/ttyACM0
+
+>>sudo usermod -aG dialout nano
+(reiniciar)
+
+
+----------------------------
+>>sudo apt-get update
+>>sudo apt-get install minicom
+
+>>sudo minicom -D /dev/ttyACM0 -b 9600
+
+-D /dev/ttyACM0: Especifica el puerto serial.
+-b 9600: Establece la velocidad de baudios (debe coincidir con la configuración del Arduino).
+
+Para salir de minicom, presioná Ctrl + A y luego Z para abrir el menú de ayuda. Luego presionar X para exit and reset
+
+
+
