@@ -1,0 +1,41 @@
+El auth key se puede cambiar en el codigo servidor.py
+
+Antes de ejecuar estas lineas, ejecutar el script blockchain_add.py para generar
+la cadena de bloques y el hash, cambiar la ruta del archivo 
+python y cambiar la version
+
+Todos los dispositivos deben estar en la misma red o usar vpn
+
+En el dispositivo objetivo se debe correr el codigo servidor.py o servidor_v2.py
+
+Los codigos track son ejemplos de diferentes funcionalidades, se pueden reemplazar
+por otros codigos
+
+-------------------------------------------------------------------------------------
+
+Una vez ejecutado el codigo blockchain_add.py y corrido el servidor flask servidor.py para
+generar bloques y actualizarlos se sigue:
+
+0. Subir bloque genesis (cambiar la ip por la ip del dispositivo
+objetivo):
+curl -X POST http://10.0.8.2:5000/genesis -H "X-Auth-Key:lsd2025" -F "json=@block_gen.json"
+
+1. Subir script + JSON del bloque (a /subir)
+
+curl -X POST http://10.0.8.2:5000/subir -H "X-Auth-Key:lsd2025" -F "file=@/home/pi-lsd/Desktop/code/blockchain001/updates/track_v1_0.py" -F "json=@last_update.json"
+
+
+2. Ejecutar el script
+curl -X POST http://10.0.8.2:5000/ejecutar/track_v1_0.py -H "X-Auth-Key:lsd2025"
+
+Asegurate que el nombre coincida con el del archivo subido.
+
+3. Detener la ejecución
+curl -X POST http://10.0.8.2:5000/detener -H "X-Auth-Key:lsd2025"
+
+
+
+
+
+
+
