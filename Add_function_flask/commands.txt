@@ -1,0 +1,18 @@
+Comandos a utilizar desde el gestor de actualizaciones para
+enviar a la jetson o dispositivo a actualizar.
+
+Primero definí la clave como variable para no repetir:
+export AUTH_HEADER="X-Auth-Key: lsd2025"
+
+Subir un script
+curl -X POST http://192.168.X.X:5000/subir \
+  -H "$AUTH_HEADER" \
+  -F "file=@test_cam.py"
+
+Ejecutar un script
+curl -X POST http://192.168.X.X:5000/ejecutar/test_cam.py \
+  -H "$AUTH_HEADER"
+
+Detener un script en ejecución
+curl -X POST http://192.168.X.X:5000/detener \
+  -H "$AUTH_HEADER"
