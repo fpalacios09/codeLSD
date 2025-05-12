@@ -1,0 +1,10 @@
+El ESP32 es el gestor de comunicacion entre la notecard y la Jetson, recibe por puerto serie0 el conteo de
+vehiculos y lo envia a la notecard por el puerto serie1, la informacion se transmite por LoRa y se actualiza
+el proyecto de Notehub, por el puerto serie2 se comunica con la jetson para el debug de la comunicacion
+con la notecard, de esta manera queda asi:
+
+- Serial 0 (puerto usb por defecto): envio de conteo de la Jetson a la ESP32
+- Serial 1: comunicacion de la ESP32 con la notecard
+- Serial 2 (adaptador CH341): comunicacion de la ESP32 con la Jetson para hacer el debug de la notecard.
+
+Se puede usar minicom para visualizar la comunicacion en la jetson
